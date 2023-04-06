@@ -59,10 +59,10 @@
         </dependency>
 
 
-        <!-- 业务模块 -->
+        <!-- common模块 -->
         <dependency>
             <groupId>com.sso</groupId>
-            <artifactId>sso-business</artifactId>
+            <artifactId>sso-common</artifactId>
         </dependency>
 
     </dependencies>

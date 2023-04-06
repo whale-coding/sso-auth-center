@@ -13,8 +13,6 @@
 
     <modules>
         <module>sso-admin</module>
-        <module>sso-framework</module>
-        <module>sso-business</module>
         <module>sso-common</module>
     </modules>
     <packaging>pom</packaging>
@@ -149,20 +147,6 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
-            </dependency>
-
-            <!-- 核心配置模块 -->
-            <dependency>
-                <groupId>com.sso</groupId>
-                <artifactId>sso-framework</artifactId>
-                <version>${sso-auth-center.version}</version>
-            </dependency>
-
-            <!-- 业务模块-->
-            <dependency>
-                <groupId>com.sso</groupId>
-                <artifactId>sso-business</artifactId>
-                <version>${sso-auth-center.version}</version>
             </dependency>
 
             <!-- 公共模块-->
