@@ -3,7 +3,7 @@ package com.sso.service.base;
 import com.sso.common.constant.CacheConstants;
 import com.sso.common.utils.StringUtils;
 import com.sso.dao.entity.SsoSystem;
-import com.sso.dao.mapper.SsoSystemMapper;
+import com.sso.mapper.SsoSystemMapper;
 import com.sso.common.redis.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

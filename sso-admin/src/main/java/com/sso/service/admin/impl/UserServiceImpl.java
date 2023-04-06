@@ -12,8 +12,8 @@ import com.sso.common.utils.bean.BeanCopierUtil;
 import com.sso.dao.dto.SsoUserDeptDTO;
 import com.sso.dao.dto.SsoUserRoleDTO;
 import com.sso.dao.entity.*;
-import com.sso.dao.mapper.*;
 import com.sso.dao.query.UserPageQuery;
+import com.sso.mapper.*;
 import com.sso.model.bo.user.*;
 import com.sso.model.vo.user.UserDetailVO;
 import com.sso.model.vo.user.UserOptionVO;
@@ -431,8 +431,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean updateUserAvatar(String userName, String avatar)
 	{
-		// return userMapper.updateUserAvatar(userName, avatar) > 0;
-		return true;
+		return userMapper.updateUserAvatar(userName, avatar) > 0;
 	}
 
 	/**

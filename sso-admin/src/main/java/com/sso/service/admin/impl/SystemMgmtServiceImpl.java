@@ -6,7 +6,7 @@ import com.sso.common.model.result.ResultPageModel;
 import com.sso.common.utils.bean.BeanCopierUtil;
 import com.sso.dao.dto.SsoUserMgmtDTO;
 import com.sso.dao.entity.SsoSystemManager;
-import com.sso.dao.mapper.SsoSystemManagerMapper;
+import com.sso.mapper.SsoSystemManagerMapper;
 import com.sso.dao.query.SystemMgmtPageQuery;
 import com.sso.model.bo.platform.SystemMgmtListPageBO;
 import com.sso.model.bo.platform.SystemMgmtRemoveBO;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sso.dao.mapper.SsoDeptTreePathMapper">
+<mapper namespace="com.sso.mapper.SsoDeptTreePathMapper">
 
     <resultMap id="BaseResultMap" type="com.sso.dao.entity.SsoDeptTreePath">
         <result column="ancestor" property="ancestor" jdbcType="BIGINT"/>
@@ -38,7 +38,7 @@
 	</delete>
 
     <!--查询所有祖先 -->
-    <select id="getAllParent" resultMap="com.sso.dao.mapper.SsoDeptMapper.BaseResultMap"
+    <select id="getAllParent" resultMap="com.sso.mapper.SsoDeptMapper.BaseResultMap"
             parameterType="java.lang.Long">
 		SELECT c.* FROM sso_dept AS c
 		INNER JOIN sso_dept_tree_path t on c.dept_id = t.ancestor
@@ -46,7 +46,7 @@
 	</select>
 
     <!--查询所有后代 -->
-    <select id="getAllChild" resultMap="com.sso.dao.mapper.SsoDeptMapper.BaseResultMap"
+    <select id="getAllChild" resultMap="com.sso.mapper.SsoDeptMapper.BaseResultMap"
             parameterType="java.lang.Long">
         SELECT c.* FROM sso_dept AS c
         INNER JOIN sso_dept_tree_path t

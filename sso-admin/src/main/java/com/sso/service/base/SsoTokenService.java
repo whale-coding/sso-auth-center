@@ -15,9 +15,9 @@ import com.sso.common.utils.StringUtils;
 import com.sso.common.utils.UUIDUtil;
 import com.sso.common.utils.ip.IpAddressUtils;
 import com.sso.common.utils.ip.IpUtils;
-import com.sso.dao.mapper.SsoOnlineUserMapper;
 import com.sso.common.config.property.SysConfigProperty;
 import com.sso.common.redis.RedisCache;
+import com.sso.mapper.SsoOnlineUserMapper;
 import com.sso.model.vo.getway.SysLoginCacheVO;
 import eu.bitwalker.useragentutils.UserAgent;
 import lombok.extern.slf4j.Slf4j;
@@ -42,13 +42,13 @@ public class SsoTokenService {
 	protected static final long MILLIS_MINUTE = 60 * MILLIS_SECOND;
 	private static final Long MILLIS_MINUTE_TEN = 20 * 60 * 1000L;
 
-	@Autowired
+	@Resource
 	private RedisCache redisCache;
 
 	@Resource
 	private SsoOnlineUserMapper ssoOnlineUserMapper;
 
-	@Autowired
+	@Resource
 	private SysConfigProperty sysConfigProperty;
 
 	/**

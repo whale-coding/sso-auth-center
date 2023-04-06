@@ -5,7 +5,7 @@ import com.sso.common.model.result.ResultPageModel;
 import com.sso.common.utils.StringUtils;
 import com.sso.common.utils.bean.BeanCopierUtil;
 import com.sso.dao.entity.SsoLoginLog;
-import com.sso.dao.mapper.SsoLoginLogMapper;
+import com.sso.mapper.SsoLoginLogMapper;
 import com.sso.dao.query.LoginLogQuery;
 import com.sso.model.bo.login.LoginLogListPageBO;
 import com.sso.model.vo.login.LoginLogPageVO;

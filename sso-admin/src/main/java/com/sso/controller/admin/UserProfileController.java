@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.UUID;
 
 /**
  * 用户-个人详情接口
@@ -77,12 +78,40 @@ public class UserProfileController {
 	/**
 	 * 个人-头像上传
 	 */
+	// @PostMapping("/avatar")
+	// public ResultModel<?> avatar(@RequestParam("avatarFile") MultipartFile avatarFile) {
+	// 	LoginUserVO loginUser = SecurityUtils.getLoginUser();
+	// 	String operateName = SecurityUtils.getOperateName();
+	// 	return ResultModel.success(fileUploadService.uploadUserAvatar(loginUser.getUserId(), operateName, avatarFile));
+	// }
 	@PostMapping("/avatar")
-	public ResultModel<?> avatar(@RequestParam("avatarFile") MultipartFile avatarFile) {
-		LoginUserVO loginUser = SecurityUtils.getLoginUser();
-		String operateName = SecurityUtils.getOperateName();
-		return ResultModel.success(fileUploadService.uploadUserAvatar(loginUser.getUserId(), operateName, avatarFile));
-	}
+	public ResultModel<?> avatar(@RequestParam("avatarFile") MultipartFile avatarFile) throws Exception{
+		if (!avatarFile.isEmpty()){
+			// 获取当前登录用户
+			LoginUserVO loginUser = SecurityUtils.getLoginUser();
+			// 获得原始文件名
+			String originalFilename = avatarFile.getOriginalFilename();
+			// 获取图片类型
+			String contentType = avatarFile.getContentType();
+			//唯一的文件名称(避免同名文件覆盖问题)
+			String filename = UUID.randomUUID().toString() + "." + org.apache.commons.lang3.StringUtils.substringAfterLast(originalFilename, ".");
+			// 上传到阿里云OSS
+			String avatar = aliyunOSSUtils.uploadImage(filename, avatarFile.getBytes(), contentType, 1000);
 
+			// return ResultModel.success(fileUploadService.uploadUserAvatar(loginUser.getUserId(), operateName, avatarFile));
+			if (userService.updateUserAvatar(loginUser.getUsername(), avatar))
+			{
+				// ResultModel<Object> success = ;
+				// AjaxResult ajax = AjaxResult.success();
+				// ajax.put("imgUrl", avatar);
+				// // 更新缓存用户头像
+				// loginUser.getUser().setAvatar(avatar);
+				// tokenService.setLoginUser(loginUser);
+				return ResultModel.success(avatar);
+			}
+
+		}
+		return ResultModel.error("上传图片异常，请联系管理员");
+	}
 
 }

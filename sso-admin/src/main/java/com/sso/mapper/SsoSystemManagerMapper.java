@@ -1,8 +1,4 @@
-/**
- * Copyright ( @程序员小强 ） All Rights Reserved.
- * 博客地址:https://blog.csdn.net/qq_38011415
- */
-package com.sso.dao.mapper;
+package com.sso.mapper;
 
 
 import com.sso.dao.dto.SsoUserMgmtDTO;

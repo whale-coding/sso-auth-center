@@ -10,7 +10,7 @@ import com.sso.common.model.login.LoginResultVO;
 import com.sso.common.model.login.LoginUserVO;
 import com.sso.common.utils.bean.BeanCopierUtil;
 import com.sso.dao.entity.SsoUser;
-import com.sso.dao.mapper.SsoUserMapper;
+import com.sso.mapper.SsoUserMapper;
 import com.sso.model.vo.login.LoginUserInfoVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
