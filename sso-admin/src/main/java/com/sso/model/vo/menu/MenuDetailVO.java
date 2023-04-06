@@ -1,7 +1,4 @@
-/**
- * haifenbb.com
- * Copyright (C) 2019-2020 All Rights Reserved.
- */
+
 package com.sso.model.vo.menu;
 
 import lombok.Data;
