@@ -1,1 +1,1 @@
-# ocenter
+# sso-auth-center
