@@ -75,12 +75,6 @@ public class UserProfileController {
 	/**
 	 * 个人-头像上传
 	 */
-	// @PostMapping("/avatar")
-	// public ResultModel<?> avatar(@RequestParam("avatarFile") MultipartFile avatarFile) {
-	// 	LoginUserVO loginUser = SecurityUtils.getLoginUser();
-	// 	String operateName = SecurityUtils.getOperateName();
-	// 	return ResultModel.success(fileUploadService.uploadUserAvatar(loginUser.getUserId(), operateName, avatarFile));
-	// }
 	@PostMapping("/avatar")
 	public ResultModel<?> avatar(@RequestParam("avatarFile") MultipartFile avatarFile) throws Exception{
 		if (!avatarFile.isEmpty()){
@@ -94,16 +88,8 @@ public class UserProfileController {
 			String filename = UUID.randomUUID().toString() + "." + org.apache.commons.lang3.StringUtils.substringAfterLast(originalFilename, ".");
 			// 上传到阿里云OSS
 			String avatar = aliyunOSSUtils.uploadImage(filename, avatarFile.getBytes(), contentType, 1000);
-
-			// return ResultModel.success(fileUploadService.uploadUserAvatar(loginUser.getUserId(), operateName, avatarFile));
-			if (userService.updateUserAvatar(loginUser.getUsername(), avatar))
-			{
-				// ResultModel<Object> success = ;
-				// AjaxResult ajax = AjaxResult.success();
-				// ajax.put("imgUrl", avatar);
-				// // 更新缓存用户头像
-				// loginUser.getUser().setAvatar(avatar);
-				// tokenService.setLoginUser(loginUser);
+			// 上传成功则返回图片地址
+			if (userService.updateUserAvatar(loginUser.getUsername(), avatar)) {
 				return ResultModel.success(avatar);
 			}
 
